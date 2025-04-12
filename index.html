@@ -5,224 +5,343 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EAGLE GRAPHICS | PROFESSIONAL GRAPHICS DESIGNER</title>
     <style>
-        /* Base Styles with Gaming Theme */
-        :root {
-            --primary: #6e48aa;
-            --secondary: #9d50bb;
-            --accent: #4776e6;
-            --dark: #1a1a2e;
-            --darker: #16213e;
-            --light: #e6f7ff;
-            --neon: #00f2fe;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Rajdhani', 'Arial', sans-serif;
-            background-color: var(--dark);
-            color: var(--light);
-            overflow-x: hidden;
-            line-height: 1.6;
-        }
-        
-        /* Particle Background */
-        #particles-js {
-            position: fixed;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            background: linear-gradient(to bottom, var(--darker), var(--dark));
-        }
-        
-        /* Header with Typing Animation */
-        header {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: white;
-            padding: 2rem 0;
-            text-align: center;
-            position: relative;
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
-            z-index: 10;
-        }
-        
-        .header-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        /* Hamburger Menu */
-        .menu-toggle {
-            display: none;
-            flex-direction: column;
-            justify-content: space-between;
-            width: 30px;
-            height: 21px;
-            position: absolute;
-            top: 30px;
-            right: 20px;
-            cursor: pointer;
-            z-index: 1000;
-        }
-        
-        .menu-toggle span {
-            display: block;
-            height: 3px;
-            width: 100%;
-            background-color: white;
-            border-radius: 3px;
-            transition: all 0.3s ease;
-        }
-        
-        /* Navigation */
-        nav {
-            display: flex;
-            justify-content: center;
-            margin-top: 1.5rem;
-        }
-        
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
-        
-        nav a {
-            color: white;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1.1rem;
-            letter-spacing: 1px;
-            padding: 0.5rem 1rem;
-            border-radius: 5px;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-        
-        nav a:hover {
-            color: var(--neon);
-        }
-        
-        nav a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: 0;
-            left: 0;
-            background-color: var(--neon);
-            transition: width 0.3s ease;
-        }
-        
-        nav a:hover::after {
-            width: 100%;
-        }
-        
-        /* Mobile Navigation */
-        .mobile-nav {
-            position: fixed;
-            top: 0;
-            right: -100%;
-            width: 70%;
-            height: 100vh;
-            background: rgba(30, 30, 60, 0.95);
-            backdrop-filter: blur(10px);
-            z-index: 999;
-            transition: right 0.5s ease;
-            padding: 5rem 2rem;
-            box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3);
-        }
-        
-        .mobile-nav.active {
-            right: 0;
-        }
-        
-        .mobile-nav ul {
-            flex-direction: column;
-            gap: 1.5rem;
-        }
-        
-        .mobile-nav a {
-            font-size: 1.2rem;
-            display: block;
-            padding: 0.8rem;
-            border-left: 3px solid var(--neon);
-        }
-        
-        .close-btn {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            font-size: 1.5rem;
-            color: white;
-            cursor: pointer;
-        }
-        
-        /* Main Content */
-        main {
-            max-width: 1200px;
-            margin: 2rem auto;
-            padding: 0 20px;
-        }
-        
-        section {
-            background: rgba(26, 26, 46, 0.7);
-            border-radius: 10px;
-            padding: 2.5rem;
-            margin-bottom: 2rem;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-            backdrop-filter: blur(5px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        
-        section:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
-        }
-        
-        h2 {
-            color: var(--neon);
-            margin-bottom: 1.5rem;
-            font-size: 2rem;
-            position: relative;
-            display: inline-block;
-        }
-        
-        h2::after {
-            content: '';
-            position: absolute;
-            width: 50%;
-            height: 3px;
-            bottom: -10px;
-            left: 0;
-            background: linear-gradient(to right, var(--neon), transparent);
-        }
-        
+    /* Base Styles with Gaming Theme */
+:root {
+    --primary: #6e48aa;
+    --secondary: #9d50bb;
+    --accent: #4776e6;
+    --dark: #1a1a2e;
+    --darker: #16213e;
+    --light: #e6f7ff;
+    --neon: #00f2fe;
+}    
+
+/* Alternative Color Themes */
+:root[data-theme="vibrant"] {
+    --primary: #FF3E9D;
+    --secondary: #0E1E25;
+    --accent: #00F0FF;
+    --dark: #0E1E25;
+    --darker: #0A1419;
+    --light: #FFFFFF;
+    --neon: #FF3E9D;
+}
+
+:root[data-theme="cyber"] {
+    --primary: #00F0FF;
+    --secondary: #FF3E9D;
+    --accent: #FFD300;
+    --dark: #0A1419;
+    --darker: #060D10;
+    --light: #E6F7FF;
+    --neon: #00F0FF;
+}
+
+:root[data-theme="golden"] {
+    --primary: #FFD700;
+    --secondary: #B8860B;
+    --accent: #FF6347;
+    --dark: #1A1A1A;
+    --darker: #0D0D0D;
+    --light: #F5F5F5;
+    --neon: #FFD700;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Rajdhani', 'Arial', sans-serif;
+    background-color: var(--dark);
+    color: var(--light);
+    overflow-x: hidden;
+    line-height: 1.6;
+    transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+/* Theme Toggle Button */
+.theme-toggle {
+    position: absolute;
+    top: 30px;
+    left: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+.theme-toggle:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: rotate(30deg);
+}
+
+.theme-toggle i {
+    font-size: 1.2rem;
+}
+
+.theme-options {
+    position: absolute;
+    top: 80px;
+    left: 20px;
+    background: rgba(30, 30, 60, 0.95);
+    border-radius: 10px;
+    padding: 1rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    display: none;
+    flex-direction: column;
+    gap: 0.5rem;
+    z-index: 1000;
+    width: 150px;
+}
+
+.theme-options.active {
+    display: flex;
+}
+
+.theme-option {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.theme-option:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.theme-color {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    border: 2px solid white;
+}
+
+.theme-default .theme-color {
+    background: linear-gradient(135deg, #6e48aa, #9d50bb);
+}
+
+.theme-vibrant .theme-color {
+    background: linear-gradient(135deg, #FF3E9D, #0E1E25);
+}
+
+.theme-cyber .theme-color {
+    background: linear-gradient(135deg, #00F0FF, #FF3E9D);
+}
+
+.theme-golden .theme-color {
+    background: linear-gradient(135deg, #FFD700, #B8860B);
+}
+
+/* Rest of your existing styles... */
+/* Particle Background */
+#particles-js {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: linear-gradient(to bottom, var(--darker), var(--dark));
+    transition: background 0.5s ease;
+}
+
+/* Header with Typing Animation */
+header {
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: white;
+    padding: 2rem 0;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+    z-index: 10;
+    transition: background 0.5s ease;
+}
+
+.header-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Hamburger Menu */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+    position: absolute;
+    top: 30px;
+    right: 20px;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+.menu-toggle span {
+    display: block;
+    height: 3px;
+    width: 100%;
+    background-color: white;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+
+/* Navigation */
+nav {
+    display: flex;
+    justify-content: center;
+    margin-top: 1.5rem;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+nav a:hover {
+    color: var(--neon);
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--neon);
+    transition: width 0.3s ease;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+/* Mobile Navigation */
+.mobile-nav {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 70%;
+    height: 100vh;
+    background: rgba(30, 30, 60, 0.95);
+    backdrop-filter: blur(10px);
+    z-index: 999;
+    transition: right 0.5s ease;
+    padding: 5rem 2rem;
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3);
+}
+
+.mobile-nav.active {
+    right: 0;
+}
+
+.mobile-nav ul {
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.mobile-nav a {
+    font-size: 1.2rem;
+    display: block;
+    padding: 0.8rem;
+    border-left: 3px solid var(--neon);
+}
+
+.close-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 1.5rem;
+    color: white;
+    cursor: pointer;
+}
+
+/* Main Content */
+main {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 20px;
+}
+
+section {
+    background: rgba(26, 26, 46, 0.7);
+    border-radius: 10px;
+    padding: 2.5rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.5s ease;
+}
+
+section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}
+
+h2 {
+    color: var(--neon);
+    margin-bottom: 1.5rem;
+    font-size: 2rem;
+    position: relative;
+    display: inline-block;
+    transition: color 0.5s ease;
+}
+
+h2::after {
+    content: '';
+    position: absolute;
+    width: 50%;
+    height: 3px;
+    bottom: -10px;
+    left: 0;
+    background: linear-gradient(to right, var(--neon), transparent);
+    transition: background 0.5s ease;
+}
+
 /* Portfolio Items */
 .portfolio-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); /* Adjusted min width */
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     gap: 2rem;
     margin-top: 2rem;
-    padding: 0 1rem; /* Added padding for better alignment */
+    padding: 0 1rem;
 }
 
-/* Portfolio Item */
 .portfolio-item {
     position: relative;
-    border-radius: 12px; /* Slightly rounded for better appearance */
+    border-radius: 12px;
     overflow: hidden;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
     transition: all 0.3s ease;
 }
 
-/* Image Styling */
 .portfolio-item img {
     width: 100%;
     height: 250px;
@@ -231,12 +350,10 @@
     transition: transform 0.5s ease;
 }
 
-/* Hover effect on image */
 .portfolio-item:hover img {
-    transform: scale(1.05); /* Slightly less aggressive scale for better visual experience */
+    transform: scale(1.05);
 }
 
-/* Portfolio Overlay */
 .portfolio-overlay {
     position: absolute;
     bottom: 0;
@@ -248,12 +365,10 @@
     transition: transform 0.3s ease;
 }
 
-/* On hover, slide the overlay in */
 .portfolio-item:hover .portfolio-overlay {
     transform: translateY(0);
 }
 
-/* Overlay Heading */
 .portfolio-overlay h3 {
     color: white;
     margin-bottom: 0.5rem;
@@ -262,7 +377,6 @@
     line-height: 1.3;
 }
 
-/* Overlay Text (optional, you can add a description under the title) */
 .portfolio-overlay p {
     color: white;
     font-size: 1rem;
@@ -270,349 +384,361 @@
     margin-bottom: 0;
 }
 
-/* Responsive Adjustments */
-@media (max-width: 1024px) {
-    .portfolio-overlay h3 {
-        font-size: 1.15rem; /* Slightly smaller title for tablets */
-    }
+/* Portfolio Filter */
+.portfolio-filter {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin: 1.5rem 0;
+}
 
-    .portfolio-item img {
-        height: 230px; /* Reduced height for tablets */
-    }
+.filter-btn {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 600;
+    margin-bottom: 13px;
+}
 
-    .portfolio-overlay p {
-        font-size: 0.95rem; /* Reduced font size for smaller devices */
+.filter-btn:hover, .filter-btn.active {
+    background: linear-gradient(to right, var(--primary), var(--secondary));
+    color: white;
+}
+
+/* Services Section */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.service-card {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    padding: 1.5rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.service-card:hover {
+    background: rgba(110, 72, 170, 0.2);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.service-card i {
+    font-size: 2.5rem;
+    color: var(--neon);
+    margin-bottom: 1rem;
+    transition: color 0.5s ease;
+}
+
+/* Pricing Section */
+.pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.pricing-card {
+    background: rgba(30, 30, 60, 0.7);
+    border-radius: 10px;
+    padding: 2rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(71, 118, 230, 0.3);
+}
+
+.pricing-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(to right, var(--primary), var(--secondary));
+    transition: background 0.5s ease;
+}
+
+.pricing-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}
+
+.pricing-card h3 {
+    color: var(--neon);
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    transition: color 0.5s ease;
+}
+
+.price {
+    font-size: 2rem;
+    font-weight: bold;
+    margin: 1rem 0;
+    color: white;
+}
+
+.price span {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.time {
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 1.5rem;
+}
+
+.btn {
+    display: inline-block;
+    background: linear-gradient(to right, var(--primary), var(--secondary));
+    color: white;
+    padding: 0.8rem 1.8rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(110, 72, 170, 0.4);
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(110, 72, 170, 0.6);
+}
+
+/* Contact Section */
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.contact-item i {
+    font-size: 1.5rem;
+    color: var(--neon);
+    transition: color 0.5s ease;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form-group label {
+    color: var(--neon);
+    transition: color 0.5s ease;
+}
+
+.form-group input,
+.form-group textarea {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+    padding: 0.8rem 1rem;
+    color: white;
+    font-family: inherit;
+}
+
+.form-group textarea {
+    min-height: 150px;
+    resize: vertical;
+}
+
+/* Footer */
+footer {
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: white;
+    text-align: center;
+    padding: 2rem 0;
+    margin-top: 3rem;
+    transition: background 0.5s ease;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin: 1.5rem 0;
+}
+
+.social-links a {
+    color: white;
+    font-size: 1.5rem;
+    transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+    color: var(--neon);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in {
+    animation: fadeIn 1s ease forwards;
+}
+
+.delay-1 { animation-delay: 0.2s; }
+.delay-2 { animation-delay: 0.4s; }
+.delay-3 { animation-delay: 0.6s; }
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .portfolio-grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     }
 }
 
 @media (max-width: 768px) {
-    .portfolio-grid {
-        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Smaller grid on tablets */
+    .menu-toggle {
+        display: flex;
     }
-
+    
+    nav ul {
+        display: none;
+    }
+    
+    section {
+        padding: 1.5rem;
+    }
+    
+    .portfolio-grid,
+    .services-grid,
+    .pricing-grid {
+        grid-template-columns: 1fr;
+    }
+    
     .portfolio-overlay h3 {
-        font-size: 1.1rem; /* Smaller font size for phones */
+        font-size: 1rem;
     }
-
+    
     .portfolio-item img {
-        height: 200px; /* Reduced image height for phones */
+        height: 200px;
     }
-
-    .portfolio-overlay p {
-        font-size: 0.9rem; /* Font size for better readability on small screens */
+    
+    .theme-toggle {
+        top: 20px;
+        left: 15px;
+    }
+    
+    .theme-options {
+        top: 70px;
+        left: 15px;
     }
 }
 
 @media (max-width: 480px) {
     .portfolio-grid {
-        grid-template-columns: 1fr; /* Single column on mobile */
+        grid-template-columns: 1fr;
     }
-
-    .portfolio-item img {
-        height: 180px; /* Even smaller image for mobile */
-    }
-
+    
     .portfolio-overlay {
-        padding: 1rem; /* Reduced padding for mobile */
+        padding: 1rem;
     }
-
-    .portfolio-overlay h3 {
-        font-size: 1rem; /* Font size for small screens */
-    }
-
-    .portfolio-overlay p {
-        font-size: 0.85rem; /* Small text for mobile */
-    }
-}
-
-}
-
-/* Adjusting font size and padding for smaller screens */
-@media (max-width: 768px) {
-    .portfolio-overlay h3 {
-        font-size: 1rem; /* Slightly smaller font size for mobile */
-    }
-
+    
     .portfolio-item img {
-        height: 200px; /* Adjusting image height for smaller screens */
+        height: 180px;
+    }
+    
+    h2 {
+        font-size: 1.5rem;
+    }
+    
+    .header-content h1 {
+        font-size: 1.8rem;
+    }
+    
+    .mobile-nav {
+        width: 80%;
+    }
+    
+    .theme-toggle {
+        width: 35px;
+        height: 35px;
+    }
+    
+    .theme-options {
+        width: 130px;
     }
 }
 
-@media (max-width: 480px) {
-    .portfolio-grid {
-        grid-template-columns: 1fr; /* Single column layout on mobile */
-    }
+</style>
 
-    .portfolio-overlay {
-        padding: 1rem; /* Reduce padding on smaller screens */
-    }
 
-    .portfolio-overlay h3 {
-        font-size: 1rem; /* Keep font size consistent for mobile */
-    }
-
-    .portfolio-item img {
-        height: 180px; /* Even smaller image height for compact screens */
-    }
-}
-
-        }
-        
-        /* Services Section */
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 1.5rem;
-            margin-top: 2rem;
-        }
-        
-        .service-card {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 10px;
-            padding: 1.5rem;
-            text-align: center;
-            transition: all 0.3s ease;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        .service-card:hover {
-            background: rgba(110, 72, 170, 0.2);
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-        }
-        
-        .service-card i {
-            font-size: 2.5rem;
-            color: var(--neon);
-            margin-bottom: 1rem;
-        }
-        
-        /* Pricing Section */
-        .pricing-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 1.5rem;
-            margin-top: 2rem;
-        }
-        
-        .pricing-card {
-            background: rgba(30, 30, 60, 0.7);
-            border-radius: 10px;
-            padding: 2rem;
-            text-align: center;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-            border: 1px solid rgba(71, 118, 230, 0.3);
-        }
-        
-        .pricing-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 5px;
-            background: linear-gradient(to right, var(--primary), var(--secondary));
-        }
-        
-        .pricing-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
-        }
-        
-        .pricing-card h3 {
-            color: var(--neon);
-            margin-bottom: 1rem;
-            font-size: 1.5rem;
-        }
-        
-        .price {
-            font-size: 2rem;
-            font-weight: bold;
-            margin: 1rem 0;
-            color: white;
-        }
-        
-        .price span {
-            font-size: 1rem;
-            color: rgba(255, 255, 255, 0.7);
-        }
-        
-        .time {
-            color: rgba(255, 255, 255, 0.7);
-            margin-bottom: 1.5rem;
-        }
-        
-        .btn {
-            display: inline-block;
-            background: linear-gradient(to right, var(--primary), var(--secondary));
-            color: white;
-            padding: 0.8rem 1.8rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
-            box-shadow: 0 5px 15px rgba(110, 72, 170, 0.4);
-        }
-        
-        .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(110, 72, 170, 0.6);
-        }
-        
-        /* Contact Section */
-        .contact-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-        
-        .contact-info {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-        }
-        
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-        
-        .contact-item i {
-            font-size: 1.5rem;
-            color: var(--neon);
-        }
-        
-        .contact-form {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-        }
-        
-        .form-group {
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-        }
-        
-        .form-group label {
-            color: var(--neon);
-        }
-        
-        .form-group input,
-        .form-group textarea {
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 5px;
-            padding: 0.8rem 1rem;
-            color: white;
-            font-family: inherit;
-        }
-        
-        .form-group textarea {
-            min-height: 150px;
-            resize: vertical;
-        }
-        
-        /* Footer */
-        footer {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: white;
-            text-align: center;
-            padding: 2rem 0;
-            margin-top: 3rem;
-        }
-        
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            margin: 1.5rem 0;
-        }
-        
-        .social-links a {
-            color: white;
-            font-size: 1.5rem;
-            transition: color 0.3s ease;
-        }
-        
-        .social-links a:hover {
-            color: var(--neon);
-        }
-        
-        /* Animations */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
-        .fade-in {
-            animation: fadeIn 1s ease forwards;
-        }
-        
-        .delay-1 { animation-delay: 0.2s; }
-        .delay-2 { animation-delay: 0.4s; }
-        .delay-3 { animation-delay: 0.6s; }
-        
-        /* Responsive Design */
-        @media (max-width: 992px) {
-            .portfolio-grid {
-                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            }
-        }
-        
-        @media (max-width: 768px) {
-            .menu-toggle {
-                display: flex;
-            }
-            
-            nav ul {
-                display: none;
-            }
-            
-            section {
-                padding: 1.5rem;
-            }
-            
-            .portfolio-grid,
-            .services-grid,
-            .pricing-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-        
-        @media (max-width: 576px) {
-            h2 {
-                font-size: 1.5rem;
-            }
-            
-            .header-content h1 {
-                font-size: 1.8rem;
-            }
-            
-            .mobile-nav {
-                width: 80%;
-            }
-        }
-    </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Particle Background -->
+    <!-- Particle Background 😁-->
     <div id="particles-js"></div>
     
-    <!-- Header with Navigation -->
+    <!-- Theme Toggle Button -->
+    <button class="theme-toggle" id="themeToggle">
+        <i class="fas fa-palette"></i>
+    </button>
+    
+    <!-- Theme Options -->
+    <div class="theme-options" id="themeOptions">
+        <div class="theme-option theme-default" data-theme="default">
+            <div class="theme-color"></div>
+            <span>Default</span>
+        </div>
+        <div class="theme-option theme-vibrant" data-theme="vibrant">
+            <div class="theme-color"></div>
+            <span>Vibrant</span>
+        </div>
+        <div class="theme-option theme-cyber" data-theme="cyber">
+            <div class="theme-color"></div>
+            <span>Cyber</span>
+        </div>
+        <div class="theme-option theme-golden" data-theme="golden">
+            <div class="theme-color"></div>
+            <span>Golden</span>
+        </div>
+    </div>
+    
+    <!--😑 Header with Navigation -->
     <header>
         <div class="header-content">
             <h1 id="typing-text"></h1>
             
-            <!-- Hamburger Menu (Mobile) -->
+           
             <div class="menu-toggle" id="menuToggle">
                 <span></span>
                 <span></span>
@@ -655,46 +781,202 @@
             <a href="#portfolio" class="btn" style="margin-top: 1.5rem;">View Our Work</a>
         </section>
         
+      
         <!-- Portfolio Section -->
-        <section id="portfolio" class="fade-in delay-1">
-            <h2>Our Portfolio</h2>
-            <p>Check out some of our recent work that helped our clients elevate their brand presence.</p>
-      <!-- pelane-->      
-            <div class="portfolio-grid">
-                <div class="portfolio-item">
-                    <img src="ww.jpg" alt="YouTube Thumbnail">
-                    <div class="portfolio-overlay">
-                        <h3>YouTube Thumbnails</h3>
-                        <p>Eye-catching thumbnails that boost CTR</p>
-                    </div>
-                </div>
-              <!-- khatam -->
-
-              <!-- testing -->
-              
-              <!-- test -->
-              
-              <!-- 2nd wala--> 
-                <div class="portfolio-item">
-                    <img src="WhatsApp Image 2025-04-09 at 8.56.41 AM.jpeg" alt="Advertisement Logos & Banners">
-                    <div class="portfolio-overlay">
-                        <h3>Advertisement Logos</h3>
-                        <p>Memorable logos for brand identity</p>
-                    </div>
-                </div>
-                <!-- khatam -->
-                
-                
-                <div class="portfolio-item">
-                    <img src="WhatsApp Image 2025-04-09 at 8.42.11 AM.jpeg" alt="Advertisement Banners & Posters">
-                    <div class="portfolio-overlay">
-                        <h3>Advertisement Banners</h3>
-                        <p>Professional banners for marketing</p>
-                    </div>
-                </div>
+<section id="portfolio" class="fade-in delay-1">
+    <h2>Our Portfolio</h2>
+    <p>Check out some of our recent work that helped our clients elevate their brand presence.</p>
+    
+    <!-- Filter Buttons -->
+    <div class="portfolio-filter">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="youtube">YouTube</button>
+        <button class="filter-btn" data-filter="logos">Logos</button>
+        <button class="filter-btn" data-filter="banners">Banners</button>
+    </div>
+    
+    <!-- Portfolio Grid -->
+    <div class="portfolio-grid">
+        <!-- YouTube Thumbnails (category: youtube) -->
+        <div class="portfolio-item" data-category="youtube">
+            <img src="ww.jpg" alt="YouTube Thumbnail">
+            <div class="portfolio-overlay">
+                <h3>YouTube Thumbnails</h3>
+                <p>Eye-catching thumbnails that boost CTR</p>
             </div>
-        </section>
+        </div>
         
+        
+        
+       
+        <div class="portfolio-item" data-category="youtube">
+            <img src="ww.jpg" alt="YouTube Thumbnail">
+            <div class="portfolio-overlay">
+                <h3>YouTube Thumbnails</h3>
+                <p>Eye-catching thumbnails that boost CTR</p>
+            </div>
+        </div>
+        
+        
+      
+       
+        <div class="portfolio-item" data-category="youtube">
+            <img src="ww.jpg" alt="YouTube Thumbnail">
+            <div class="portfolio-overlay">
+                <h3>YouTube Thumbnails</h3>
+                <p>Eye-catching thumbnails that boost CTR</p>
+            </div>
+        </div>
+        
+        
+      
+       
+        <div class="portfolio-item" data-category="youtube">
+            <img src="ww.jpg" alt="YouTube Thumbnail">
+            <div class="portfolio-overlay">
+                <h3>YouTube Thumbnails</h3>
+                <p>Eye-catching thumbnails that boost CTR</p>
+            </div>
+        </div>
+        
+        
+        
+        <!-- Logos (category: logos) -->
+        
+        
+        <div class="portfolio-item" data-category="logos">
+            <img src="cccccc" alt="Advertisement Logos">
+            <div class="portfolio-overlay">
+                <h3>Advertisement Logos</h3>
+                <p>Memorable logos for brand identity</p>
+            </div>
+        </div>
+        
+        
+             
+        
+        <div class="portfolio-item" data-category="logos">
+            <img src="cccccc" alt="Advertisement Logos">
+            <div class="portfolio-overlay">
+                <h3>Advertisement Logos</h3>
+                <p>Memorable logos for brand identity</p>
+            </div>
+        </div>
+        
+        
+             
+        
+        <div class="portfolio-item" data-category="logos">
+            <img src="cccccc" alt="Advertisement Logos">
+            <div class="portfolio-overlay">
+                <h3>Advertisement Logos</h3>
+                <p>Memorable logos for brand identity</p>
+            </div>
+        </div>
+        
+        
+             
+        
+        <div class="portfolio-item" data-category="logos">
+            <img src="cccccc" alt="Advertisement Logos">
+            <div class="portfolio-overlay">
+                <h3>Advertisement Logos</h3>
+                <p>Memorable logos for brand identity</p>
+            </div>
+        </div>
+        
+        
+        
+        
+        <div class="portfolio-item" data-category="logos">
+            <img src="WhatsApp Image 2025-04-09 at 8.56.41 AM.jpeg" alt="Advertisement Logos">
+            <div class="portfolio-overlay">
+                <h3>Advertisement Logos</h3>
+                <p>Memorable logos for brand identity</p>
+            </div>
+        </div>
+        
+        <!-- Banners (category: banners) -->
+   
+   
+   
+        <div class="portfolio-item" data-category="banners">
+            <img src="WhatsApp Image 2025-04-09 at 8.42.11 AM.jpeg" alt="Advertisement Banners">
+            <div class="portfolio-overlay">
+                <h3>Advertisement Banners</h3>
+                <p>Professional banners for marketing</p>
+            </div>
+        </div>
+        
+       
+   
+   
+        <div class="portfolio-item" data-category="banners">
+            <img src="WhatsApp Image 2025-04-09 at 8.42.11 AM.jpeg" alt="Advertisement Banners">
+            <div class="portfolio-overlay">
+                <h3>Advertisement Banners</h3>
+                <p>Professional banners for marketing</p>
+            </div>
+        </div>
+        
+       
+   
+   
+        <div class="portfolio-item" data-category="banners">
+            <img src="WhatsApp Image 2025-04-09 at 8.42.11 AM.jpeg" alt="Advertisement Banners">
+            <div class="portfolio-overlay">
+                <h3>Advertisement Banners</h3>
+                <p>Professional banners for marketing</p>
+            </div>
+        </div>
+        
+       
+   
+   
+        <div class="portfolio-item" data-category="banners">
+            <img src="WhatsApp Image 2025-04-09 at 8.42.11 AM.jpeg" alt="Advertisement Banners">
+            <div class="portfolio-overlay">
+                <h3>Advertisement Banners</h3>
+                <p>Professional banners for marketing</p>
+            </div>
+        </div>
+        
+       
+   
+   
+        <div class="portfolio-item" data-category="banners">
+            <img src="WhatsApp Image 2025-04-09 at 8.42.11 AM.jpeg" alt="Advertisement Banners">
+            <div class="portfolio-overlay">
+                <h3>Advertisement Banners</h3>
+                <p>Professional banners for marketing</p>
+            </div>
+        </div>
+        
+        <!-- Add more portfolio items here -->
+        <!-- Example: -->
+        <div class="portfolio-item" data-category="youtube">
+            <img src="your-image.jpg" alt="YouTube Thumbnail 2">
+            <div class="portfolio-overlay">
+                <h3>YouTube Thumbnail 2</h3>
+                <p>Another great thumbnail design</p>
+            </div>
+        </div>
+        
+        <div class="portfolio-item" data-category="logos">
+            <img src="your-image.jpg" alt="Logo Design 2">
+            <div class="portfolio-overlay">
+                <h3>Logo Design 2</h3>
+                <p>Another professional logo</p>
+            </div>
+        </div>
+        
+        <!-- You can add more items as needed -->
+    </div>
+    
+    <!-- Show All / Show Less Button -->
+    <button id="togglePortfolioBtn" class="btn" style="margin-top: 1.5rem;">Show All</button>
+</section>
+
         <!-- Services Section -->
         <section id="services" class="fade-in delay-2">
             <h2>Our Services</h2>
@@ -943,5 +1225,128 @@
         window.addEventListener('scroll', fadeInOnScroll);
         window.addEventListener('load', fadeInOnScroll);
     </script>
+    <script>
+    // Portfolio Filtering
+    document.addEventListener('DOMContentLoaded', function() {
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const portfolioItems = document.querySelectorAll('.portfolio-item');
+        
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                // Add active class to clicked button
+                button.classList.add('active');
+                
+                const filterValue = button.getAttribute('data-filter');
+                
+                portfolioItems.forEach(item => {
+                    if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+    });
+</script>        
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const portfolioItems = document.querySelectorAll('.portfolio-item');
+    const toggleBtn = document.getElementById('togglePortfolioBtn');
+    const maxVisibleItems = 4; // Always show 4 by default
+
+    // Function to filter + limit items
+    function filterItems(filterValue, showAll = false) {
+        let visibleCount = 0;
+
+        portfolioItems.forEach(item => {
+            const category = item.getAttribute('data-category');
+            
+            // Show if matches filter
+            if (filterValue === 'all' || category === filterValue) {
+                if (showAll || visibleCount < maxVisibleItems) {
+                    item.style.display = 'block';
+                    visibleCount++;
+                } else {
+                    item.style.display = 'none';
+                }
+            } else {
+                item.style.display = 'none';
+            }
+        });
+
+        // Update button text
+        toggleBtn.textContent = showAll ? 'Show Less' : 'Show All';
+    }
+
+    // Default filter (All)
+    filterItems('all');
+    filterButtons[0].classList.add('active'); // Activate "All" button
+
+    // Filter button clicks
+    filterButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            button.classList.add('active');
+            filterItems(button.getAttribute('data-filter'));
+        });
+    });
+
+    // Toggle Show All/Less
+    toggleBtn.addEventListener('click', function() {
+        const activeFilter = document.querySelector('.filter-btn.active').getAttribute('data-filter');
+        const isShowingAll = toggleBtn.textContent === 'Show Less';
+        filterItems(activeFilter, !isShowingAll); // Toggle state
+    });
+});
+</script>
+
+<!-- Theme Switching Script -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const themeToggle = document.getElementById('themeToggle');
+    const themeOptions = document.getElementById('themeOptions');
+    const themeOptionButtons = document.querySelectorAll('.theme-option');
+    
+    // Toggle theme options visibility
+    themeToggle.addEventListener('click', function(e) {
+        e.stopPropagation();
+        themeOptions.classList.toggle('active');
+    });
+    
+    // Close theme options when clicking outside
+    document.addEventListener('click', function() {
+        themeOptions.classList.remove('active');
+    });
+    
+    // Prevent theme options from closing when clicking inside
+    themeOptions.addEventListener('click', function(e) {
+        e.stopPropagation();
+    });
+    
+    // Theme selection
+    themeOptionButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const theme = this.getAttribute('data-theme');
+            document.documentElement.setAttribute('data-theme', theme);
+            
+            // Save theme preference
+            localStorage.setItem('theme', theme);
+            
+            // Close options
+            themeOptions.classList.remove('active');
+        });
+    });
+    
+    // Load saved theme
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+        document.documentElement.setAttribute('data-theme', savedTheme);
+    }
+});
+</script>
 </body>
 </html>
